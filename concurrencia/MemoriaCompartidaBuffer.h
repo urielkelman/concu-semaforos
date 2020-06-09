@@ -2,8 +2,8 @@
 // Created by urielkelman on 7/6/20.
 //
 
-#ifndef CONCU_SEMAFOROS_MEMORIACOMPARTIDA_H
-#define CONCU_SEMAFOROS_MEMORIACOMPARTIDA_H
+#ifndef CONCU_SEMAFOROS_MEMORIACOMPARTIDABUFFER_H
+#define CONCU_SEMAFOROS_MEMORIACOMPARTIDABUFFER_H
 
 #include <sys/types.h>
 #include <sys/ipc.h>
@@ -14,39 +14,38 @@
 #include <errno.h>
 
 
-template <class T> class MemoriaCompartida {
+template <class T> class MemoriaCompartidaBuffer {
 
 private:
     int	shmId;
     T*	datos;
     int	cantidadProcesosAdosados() const;
-    std::string archivo = "/bin/bash";
+    std::string archivo = "/bin/echo";
 
 public:
-    MemoriaCompartida();
-    MemoriaCompartida(const char letra);
-    ~MemoriaCompartida();
+    MemoriaCompartidaBuffer();
+    MemoriaCompartidaBuffer(const char letra, int longitud);
+    ~MemoriaCompartidaBuffer();
 
-    void crear(const char letra);
+    void crear(const char letra, int longitud);
     void liberar();
 
-    void escribir ( const T& dato );
-    T leer () const;
+    void escribirPosicion (const T& dato, int posicion);
+    T leerPosicion (int posicion) const;
 };
 
-template <class T> MemoriaCompartida<T> :: MemoriaCompartida(): shmId(0), datos(NULL) {
+template <class T> MemoriaCompartidaBuffer<T> :: MemoriaCompartidaBuffer(): shmId(0), datos(NULL) {
 }
 
-template <class T> MemoriaCompartida <T> :: MemoriaCompartida(const char letra): shmId(0), datos(NULL) {
-    this->crear(letra);
+template <class T> MemoriaCompartidaBuffer <T> :: MemoriaCompartidaBuffer(const char letra, int longitud): shmId(0), datos(NULL) {
+    this->crear(letra, longitud);
 }
 
-template <class T> void MemoriaCompartida<T> :: crear(const char letra) {
-    key_t clave = ftok(archivo.c_str(), letra);
+template <class T> void MemoriaCompartidaBuffer<T> :: crear(const char letra, int longitud) {
+    key_t clave = ftok(archivo.c_str(), 'D');
 
     if (clave > 0) {
-        this->shmId = shmget (clave, sizeof(T), 0644|IPC_CREAT);
-
+        this->shmId = shmget (clave, sizeof(T) * longitud, 0644|IPC_CREAT);
         if (this->shmId > 0) {
             void* tmpPtr = shmat (this->shmId, NULL, 0);
             if (tmpPtr != (void*) -1) {
@@ -67,7 +66,7 @@ template <class T> void MemoriaCompartida<T> :: crear(const char letra) {
 
 
 
-template <class T> void MemoriaCompartida<T> :: liberar() {
+template <class T> void MemoriaCompartidaBuffer<T> :: liberar() {
     int errorDt = shmdt ((void *) this->datos);
 
     if (errorDt != -1) {
@@ -81,7 +80,7 @@ template <class T> void MemoriaCompartida<T> :: liberar() {
     }
 }
 
-template <class T> MemoriaCompartida<T> :: ~MemoriaCompartida () {
+template <class T> MemoriaCompartidaBuffer<T> :: ~MemoriaCompartidaBuffer () {
     int errorDt = shmdt (static_cast<void*> (this->datos));
 
     if (errorDt != -1) {
@@ -94,19 +93,19 @@ template <class T> MemoriaCompartida<T> :: ~MemoriaCompartida () {
     }
 }
 
-template <class T> void MemoriaCompartida<T> :: escribir (const T& dato) {
-    *(this->datos) = dato;
+template <class T> void MemoriaCompartidaBuffer<T> :: escribirPosicion (const T& dato, int posicion) {
+    *(this->datos + posicion * sizeof(T)) = dato;
 }
 
-template <class T> T MemoriaCompartida<T> :: leer() const {
-    return *(this->datos);
+template <class T> T MemoriaCompartidaBuffer<T> :: leerPosicion(int posicion) const {
+    return *(this->datos + posicion * sizeof(T));
 }
 
-template <class T> int MemoriaCompartida<T> :: cantidadProcesosAdosados () const {
+template <class T> int MemoriaCompartidaBuffer<T> :: cantidadProcesosAdosados () const {
     shmid_ds estado;
     shmctl ( this->shmId,IPC_STAT,&estado );
     return estado.shm_nattch;
 }
 
 
-#endif //CONCU_SEMAFOROS_MEMORIACOMPARTIDA_H
+#endif //CONCU_SEMAFOROS_MEMORIACOMPARTIDABUFFER_H

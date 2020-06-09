@@ -3,6 +3,8 @@
 using namespace std;
 
 #include <string.h>
+#include "logging/Logging.h"
+#include "pizzeria/Fabricante.h"
 
 
 const string DESCRIPCION_DE_USO = "Uso: ./concupizza -p $CANTIDAD_DE_PIZZAS";
@@ -14,7 +16,7 @@ int determinarCantidadDeParametros(char* argv[]) {
 }
 
 int popularPizzas(char* argv[]){
-    if(strcmp(argv[1], "2") != 0){
+    if(strcmp(argv[1], "-p") != 0){
         return -1;
     } else {
         try {
@@ -40,6 +42,10 @@ int main(int argc, char* argv[]) {
         cout << DESCRIPCION_DE_USO << "\n";
     }
 
+    Logging::Inicializar(DEBUG);
+
+    Fabricante fabricante(cantidadDePizzas);
+    fabricante.comenzarSimulacion();
 
     return 0;
 }

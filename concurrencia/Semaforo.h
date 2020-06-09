@@ -21,8 +21,10 @@ private:
     int inicializar () const;
 
 public:
-    Semaforo (const string& nombre, const int valorInicial);
+    Semaforo(char letra, const int valorInicial);
     ~Semaforo();
+
+    string archivo = "/bin/bash";
 
     int p() const; // decrementa
     int v() const; // incrementa
