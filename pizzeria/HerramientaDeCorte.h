@@ -8,24 +8,31 @@
 #include "../concurrencia/Semaforo.h"
 #include "../logging/Logging.h"
 #include "../concurrencia/MemoriaCompartidaBuffer.h"
-#include "Fabricante.h"
-#include <unistd.h>
+
+typedef int Masa;
+typedef int MasaConIngredientes ;
 
 class HerramientaDeCorte {
 public:
     HerramientaDeCorte(Semaforo semaforoProduccionMasa, Semaforo semaforoConsumoMasa,
             Semaforo semaforoConsumoIngredientes, Semaforo semaforoProduccionIngredientes,
             int pizzasACondimentar);
+    ~HerramientaDeCorte();
 
 private:
     int pizzasACondimentar;
+    int cantidadCondimentada = 0;
 
     Semaforo semaforoProduccionMasa;
     Semaforo semaforoConsumoMasa;
     Semaforo semaforoProduccionIngredientes;
     Semaforo semaforoConsumoIngredientes;
 
-    void comenzarAConsumir();
+    MemoriaCompartidaBuffer<int> bufferMasas;
+    MemoriaCompartidaBuffer<int> bufferMasasConIngredientes;
+
+    void comenzarACondimentar();
+    void agregarIngredientesYPasarARayador(Masa masa);
 };
 
 

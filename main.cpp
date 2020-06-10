@@ -46,6 +46,4 @@ int main(int argc, char* argv[]) {
 
     Fabricante fabricante(cantidadDePizzas);
     fabricante.comenzarSimulacion();
-
-    return 0;
 }

@@ -4,14 +4,20 @@
 
 #include "Fabricante.h"
 #include <unistd.h>
+#include <wait.h>
 
 Fabricante::Fabricante(int pizzasAFabricar) :
 semaforoProduccionMasa('a', 0),
 semaforoConsumoMasa('b', BUFFIZE_MASA),
 pizzasAFabricar(pizzasAFabricar){
-    Semaforo semaforoConsumoIngredientes('c', 0);
-    Semaforo semaforoProduccionIngredientes('d', BUFFSIZE_INGREDIENTES);
+    LOG_DEBUG("Inicializando proceso de fabricacion de masas. Id de proceso: " + to_string(getpid()));
+    Semaforo semaforoProduccionIngredientes('c', 0);
+    Semaforo semaforoConsumoIngredientes('d', BUFFSIZE_INGREDIENTES);
+    Semaforo semaforoProduccionHorno('e', 0);
+    Semaforo semaforoConsumoHorno('f', BUFFSIZE_HORNO);
     this->generarHerramientaDeCorte(semaforoProduccionIngredientes, semaforoConsumoIngredientes);
+    this->generarRayadorDeQueso(semaforoProduccionIngredientes, semaforoConsumoIngredientes,
+                                semaforoProduccionHorno, semaforoConsumoHorno);
 }
 
 Fabricante::~Fabricante() {
@@ -24,18 +30,43 @@ void Fabricante::generarHerramientaDeCorte(Semaforo semaforoProduccionIngredient
         HerramientaDeCorte herramientaDeCorte(this->semaforoProduccionMasa, this->semaforoConsumoMasa,
                 semaforoConsumoIngredientes, semaforoProduccionIngredientes, this->pizzasAFabricar);
     }
+}
 
+void Fabricante::generarRayadorDeQueso(Semaforo semaforoProduccionIngredientes, Semaforo semaforoConsumoIngredientes,
+                                       Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno) {
+    pid_t id = fork();
+    if(id == 0){
+        RayadorDeQueso rayadorDeQueso(semaforoProduccionIngredientes, semaforoConsumoIngredientes,
+                                      semaforoProduccionHorno, semaforoConsumoHorno, this->pizzasAFabricar);
+    }
 }
 
 void Fabricante::comenzarSimulacion() {
-    MemoriaCompartidaBuffer<MASA> bufferMasas('a', BUFFIZE_MASA);
+    MemoriaCompartidaBuffer<Masa> bufferMasas('a', BUFFIZE_MASA);
     for(int i = 0; i < this->pizzasAFabricar; i++){
-        MASA masa = i;
+        Masa masa = i;
         LOG_DEBUG("Moldeando masa..");
         sleep(1);
         int posicionAEscribir = i % BUFFIZE_MASA;
-        LOG_DEBUG("Se deposita masa en la posicion " + to_string(posicionAEscribir) + " del buffer");
+        this->semaforoConsumoMasa.p();
+        LOG_DEBUG("Se deposita masa " + to_string(masa) + " en la posicion " + to_string(posicionAEscribir) + " del buffer");
         bufferMasas.escribirPosicion(masa, posicionAEscribir);
         this->semaforoProduccionMasa.v();
     }
+    this->semaforoProduccionMasa.w();
+    LOG_DEBUG("Eliminado semaforo de produccion de masa.");
+    this->semaforoProduccionMasa.eliminar();
+    LOG_DEBUG("Eliminando semaforo de consumo de masa");
+    this->semaforoConsumoMasa.eliminar();
+
+    int status;
+    while ((wait(&status)) > 0);
+
+    bufferMasas.liberar();
+
+    LOG_INFO("Terminando simulacion.");
+
+    Logging::Finalizar();
+
+    exit(0);
 }

@@ -12,7 +12,9 @@
 #include <string.h>
 #include <iostream>
 #include <errno.h>
+#include <unistd.h>
 
+#include "../logging/Logging.h"
 
 template <class T> class MemoriaCompartidaBuffer {
 
@@ -42,10 +44,10 @@ template <class T> MemoriaCompartidaBuffer <T> :: MemoriaCompartidaBuffer(const 
 }
 
 template <class T> void MemoriaCompartidaBuffer<T> :: crear(const char letra, int longitud) {
-    key_t clave = ftok(archivo.c_str(), 'D');
+    key_t clave = ftok(archivo.c_str(), letra);
 
     if (clave > 0) {
-        this->shmId = shmget (clave, sizeof(T) * longitud, 0644|IPC_CREAT);
+        this->shmId = shmget(clave, sizeof(T) * longitud, 0644|IPC_CREAT);
         if (this->shmId > 0) {
             void* tmpPtr = shmat (this->shmId, NULL, 0);
             if (tmpPtr != (void*) -1) {
@@ -68,6 +70,7 @@ template <class T> void MemoriaCompartidaBuffer<T> :: crear(const char letra, in
 
 template <class T> void MemoriaCompartidaBuffer<T> :: liberar() {
     int errorDt = shmdt ((void *) this->datos);
+
 
     if (errorDt != -1) {
         int procAdosados = this->cantidadProcesosAdosados();

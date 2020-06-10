@@ -17,8 +17,8 @@ add_executable(concu_semaforos
         pizzeria/Fabricante.h
         pizzeria/HerramientaDeCorte.cpp
         pizzeria/HerramientaDeCorte.h
-        pizzeria/Horno.cpp
-        pizzeria/Horno.h
+        pizzeria/Horneador.cpp
+        pizzeria/Horneador.h
         pizzeria/RayadorDeQueso.cpp
         pizzeria/RayadorDeQueso.h
         main.cpp)

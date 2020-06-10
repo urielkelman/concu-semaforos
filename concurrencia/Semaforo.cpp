@@ -51,3 +51,14 @@ int Semaforo:: v() const {
 void Semaforo::eliminar() const {
     semctl(this->id, 0, IPC_RMID);
 }
+
+int Semaforo::w() const {
+    struct sembuf operacion;
+
+    operacion.sem_num = 0;
+    operacion.sem_op  = 0;
+    operacion.sem_flg = SEM_UNDO;
+
+    int resultado = semop (this->id, &operacion, 1 );
+    return resultado;
+}

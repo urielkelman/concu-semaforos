@@ -5,15 +5,17 @@
 #ifndef CONCU_SEMAFOROS_FABRICANTE_H
 #define CONCU_SEMAFOROS_FABRICANTE_H
 
-#define BUFFIZE_MASA 5
+#define BUFFIZE_MASA 3
 #define BUFFSIZE_INGREDIENTES 5
+#define BUFFSIZE_HORNO 5
 
 #include "HerramientaDeCorte.h"
+#include "RayadorDeQueso.h"
 #include "../concurrencia/Semaforo.h"
 #include "../concurrencia/MemoriaCompartidaBuffer.h"
 #include "../logging/Logging.h"
 
-typedef int MASA;
+typedef int Masa;
 
 class Fabricante {
 public:
@@ -29,6 +31,8 @@ private:
     Semaforo semaforoConsumoMasa;
 
     void generarHerramientaDeCorte(Semaforo semaforoProduccionIngredientes, Semaforo semaforoConsumoIngredientes);
+    void generarRayadorDeQueso(Semaforo semaforoProduccionIngredientes, Semaforo semaforoConsumoIngredientes,
+                               Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno);
 
 
 };

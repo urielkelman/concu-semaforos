@@ -28,6 +28,7 @@ public:
 
     int p() const; // decrementa
     int v() const; // incrementa
+    int w() const; // espera a que llegue a cero
     void eliminar () const;
 };
 
