@@ -14,6 +14,8 @@ NivelDeLogging Logging::nivelDeLogging;
 vector<string> Logging::nivelLogStrings = {"INFO", "DEBUG"};
 int Logging::numeroMagicoDePadding = 30;
 string Logging::ruta = "log.txt";
+Semaforo Logging::semaforoEscritura = Semaforo('Z', 1);
+ofstream Logging::file;
 
 NivelDeLogging Logging::ObtenerNivelDeLogging(string nivelDeLog) {
     if(nivelLogStrings[INFO] == nivelDeLog){
@@ -27,6 +29,7 @@ NivelDeLogging Logging::ObtenerNivelDeLogging(string nivelDeLog) {
 
 void Logging::Inicializar(NivelDeLogging _nivelDeLogging) {
     nivelDeLogging = _nivelDeLogging;
+    file.open(ruta);
     LOG_INFO("Inicializando log.");
 }
 
@@ -43,8 +46,11 @@ void Logging::Loggear(NivelDeLogging _nivelDeLogging, string mensaje, string pat
         linea << time << " | ";
         linea << mensaje << "\n";
         string lineaString = linea.str();
-        //const char* lineaArchivo = lineaString.c_str();
+        semaforoEscritura.p();
+        file << lineaString;
+        file.flush();
         cerr << lineaString;
+        semaforoEscritura.v();
     }
 }
 
@@ -60,6 +66,8 @@ string Logging::obtenerTiempo() {
 }
 
 void Logging::Finalizar() {
+    Logging::semaforoEscritura.eliminar();
+    file.close();
     LOG_INFO("Cerrando archivo de log.");
 }
 

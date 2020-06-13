@@ -8,6 +8,9 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <fstream>
+
+#include "../concurrencia/Semaforo.h"
 
 using namespace std;
 
@@ -42,6 +45,8 @@ private:
     static string obtenerNombreArchivo(string);
     static int numeroMagicoDePadding;
     static string ruta;
+    static Semaforo semaforoEscritura;
+    static ofstream file;
 
     Logging();
     ~Logging();

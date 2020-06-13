@@ -1,0 +1,132 @@
+[INFO] Logging.cpp:33                00:20:24 | Inicializando log.
+[DEBUG] Fabricante.cpp:13             00:20:24 | Inicializando proceso de fabricacion de masas. Id de proceso: 19341
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:18     00:20:24 | Inicializando proceso encargado de cortar y agregar ingredientes. Id de proceso: 19342
+[DEBUG] RayadorDeQueso.cpp:16         00:20:24 | Inicializando proceso rayador de queso. Id del proceso: 19343
+[DEBUG] Horneador.cpp:12              00:20:24 | Inicializando proceso horneador. Id del proceso: 19344
+[DEBUG] RayadorDeQueso.cpp:22         00:20:24 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:22              00:20:24 | Esperando para retirar la proxima pizza del horno
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 0 en la posicion 0 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:24 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:24 | Se leyo masa: 0 de la posicion: 0 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:24 | Agregando ingredientes a la masa recibida.
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 1 en la posicion 1 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:24 | Se deposita masa con ingredientes 0 en la posicion 0 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:24 | Se leyo masa: 0 de la posicion: 0 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:24 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] RayadorDeQueso.cpp:52         00:20:24 | Se deposita masa con queso 0 en la posicion 0 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:24 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:24 | Se leyo masa horneada: 0 de la posicion: 0 del horno.
+[DEBUG] Horneador.cpp:22              00:20:24 | Esperando para retirar la proxima pizza del horno
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 2 en la posicion 2 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:24 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:24 | Se leyo masa: 1 de la posicion: 1 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:24 | Agregando ingredientes a la masa recibida.
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 3 en la posicion 3 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:24 | Se deposita masa con ingredientes 1 en la posicion 1 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:24 | Se leyo masa: 1 de la posicion: 1 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:24 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 4 en la posicion 4 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:24 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:24 | Se leyo masa: 2 de la posicion: 2 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:24 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:24 | Se deposita masa con queso 1 en la posicion 1 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:24 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:24 | Se leyo masa horneada: 1 de la posicion: 1 del horno.
+[DEBUG] Horneador.cpp:22              00:20:24 | Esperando para retirar la proxima pizza del horno
+[DEBUG] Fabricante.cpp:60             00:20:24 | Se deposita masa 5 en la posicion 5 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:24 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:24 | Se deposita masa con ingredientes 2 en la posicion 2 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:24 | Se leyo masa: 2 de la posicion: 2 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:24 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] Fabricante.cpp:60             00:20:25 | Se deposita masa 6 en la posicion 6 del buffer
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] Fabricante.cpp:56             00:20:25 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 3 de la posicion: 3 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 2 en la posicion 2 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 2 de la posicion: 2 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] Fabricante.cpp:60             00:20:25 | Se deposita masa 7 en la posicion 7 del buffer
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 3 en la posicion 3 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:25 | Moldeando masa..
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 3 de la posicion: 3 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 3 en la posicion 3 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 3 de la posicion: 3 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] Fabricante.cpp:60             00:20:25 | Se deposita masa 8 en la posicion 8 del buffer
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 4 de la posicion: 4 del buffer
+[DEBUG] Fabricante.cpp:56             00:20:25 | Moldeando masa..
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] Fabricante.cpp:60             00:20:25 | Se deposita masa 9 en la posicion 9 del buffer
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 4 en la posicion 4 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 4 de la posicion: 4 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 5 de la posicion: 5 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 4 en la posicion 4 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 4 de la posicion: 4 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 5 en la posicion 5 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 5 de la posicion: 5 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 6 de la posicion: 6 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 5 en la posicion 0 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 5 de la posicion: 0 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 6 en la posicion 6 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 6 de la posicion: 6 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 7 de la posicion: 7 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 6 en la posicion 1 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 6 de la posicion: 1 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 7 en la posicion 7 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 7 de la posicion: 7 del buffer
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 8 de la posicion: 8 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 7 en la posicion 2 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 7 de la posicion: 2 del horno.
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 8 en la posicion 8 del buffer
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 8 de la posicion: 8 del buffer
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:25     00:20:25 | Esperando por masa.
+[DEBUG] HerramientaDeCorte.cpp:29     00:20:25 | Se leyo masa: 9 de la posicion: 9 del buffer
+[DEBUG] HerramientaDeCorte.cpp:47     00:20:25 | Agregando ingredientes a la masa recibida.
+[DEBUG] Fabricante.cpp:65             00:20:25 | Eliminado semaforo de produccion de masa.
+[DEBUG] Fabricante.cpp:67             00:20:25 | Eliminando semaforo de consumo de masa
+[DEBUG] HerramientaDeCorte.cpp:54     00:20:25 | Se deposita masa con ingredientes 9 en la posicion 9 del buffer
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 8 en la posicion 3 del horno
+[DEBUG] RayadorDeQueso.cpp:22         00:20:25 | Esperando por masa con ingredientes agregados
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 8 de la posicion: 3 del horno.
+[DEBUG] RayadorDeQueso.cpp:27         00:20:25 | Se leyo masa: 9 de la posicion: 9 del buffer
+[DEBUG] Horneador.cpp:22              00:20:25 | Esperando para retirar la proxima pizza del horno
+[DEBUG] HerramientaDeCorte.cpp:35     00:20:25 | Elminando semaforo de produccion de ingredientes
+[DEBUG] RayadorDeQueso.cpp:45         00:20:25 | Agregando queso a la masa con ingredientes recibida
+[DEBUG] HerramientaDeCorte.cpp:37     00:20:25 | Eliminando semaforo de consumo de ingredientes
+[DEBUG] RayadorDeQueso.cpp:52         00:20:25 | Se deposita masa con queso 9 en la posicion 4 del horno
+[DEBUG] RayadorDeQueso.cpp:33         00:20:25 | Eliminando semaforo de produccion del horno.
+[DEBUG] Horneador.cpp:28              00:20:25 | Se leyo masa horneada: 9 de la posicion: 4 del horno.
+[DEBUG] RayadorDeQueso.cpp:35         00:20:25 | Eliminando semaforo de consumo del horno.
+[INFO] Fabricante.cpp:75             00:20:25 | Terminando simulacion.
