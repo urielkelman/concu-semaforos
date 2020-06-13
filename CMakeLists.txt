@@ -21,4 +21,4 @@ add_executable(concu_semaforos
         pizzeria/Horneador.h
         pizzeria/RayadorDeQueso.cpp
         pizzeria/RayadorDeQueso.h
-        main.cpp)
+        main.cpp utils/NumeroAleatorio.cpp utils/NumeroAleatorio.h utils/NumeroAleatorio.cpp utils/NumeroAleatorio.h)

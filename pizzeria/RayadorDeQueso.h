@@ -16,20 +16,20 @@ public:
     ~RayadorDeQueso();
 
 private:
-    int pizzasAQuesear;
     int cantidadQueseada = 0;
-
-    MemoriaCompartidaBuffer<int> bufferMasasConIngredientes;
-    MemoriaCompartidaBuffer<int> bufferHorno;
 
     Semaforo semaforoProduccionIngredientes;
     Semaforo semaforoConsumoIngredientes;
     Semaforo semaforoProduccionHorno;
     Semaforo semaforoConsumoHorno;
 
+    int pizzasAQuesear;
+
+    MemoriaCompartidaBuffer<int> bufferMasasConIngredientes;
+    MemoriaCompartidaBuffer<int> bufferHorno;
+
     void comenzarAQuesear();
     void agregarQuesoYHornear(MasaConIngredientes masaConIngredientes);
-
 };
 
 

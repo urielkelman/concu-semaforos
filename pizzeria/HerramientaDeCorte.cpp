@@ -21,7 +21,7 @@ bufferMasasConIngredientes('b', BUFFSIZE_INGREDIENTES){
 
 void HerramientaDeCorte::comenzarACondimentar() {
     for(int i = 0; i < this->pizzasACondimentar; i++){
-        sleep(2);
+        usleep(NumeroAleatorio::Obtener());
         LOG_DEBUG("Esperando por masa.");
         this->semaforoProduccionMasa.p();
         int posicionALeer = i % BUFFIZE_MASA;
@@ -45,8 +45,7 @@ void HerramientaDeCorte::comenzarACondimentar() {
 
 void HerramientaDeCorte::agregarIngredientesYPasarARayador(Masa masa) {
     LOG_DEBUG("Agregando ingredientes a la masa recibida.");
-    sleep(1);
-
+    usleep(NumeroAleatorio::Obtener());
     MasaConIngredientes masaConIngredientes = masa;
     int posicionAEscribir = this->cantidadCondimentada % BUFFSIZE_INGREDIENTES;
     this->cantidadCondimentada++;

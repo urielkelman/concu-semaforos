@@ -20,13 +20,14 @@ public:
     ~HerramientaDeCorte();
 
 private:
-    int pizzasACondimentar;
     int cantidadCondimentada = 0;
 
     Semaforo semaforoProduccionMasa;
     Semaforo semaforoConsumoMasa;
     Semaforo semaforoProduccionIngredientes;
     Semaforo semaforoConsumoIngredientes;
+
+    int pizzasACondimentar;
 
     MemoriaCompartidaBuffer<int> bufferMasas;
     MemoriaCompartidaBuffer<int> bufferMasasConIngredientes;

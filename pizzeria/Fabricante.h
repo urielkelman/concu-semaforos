@@ -11,6 +11,8 @@
 
 #include "HerramientaDeCorte.h"
 #include "RayadorDeQueso.h"
+#include "Horneador.h"
+#include "../utils/NumeroAleatorio.h"
 #include "../concurrencia/Semaforo.h"
 #include "../concurrencia/MemoriaCompartidaBuffer.h"
 #include "../logging/Logging.h"
@@ -25,16 +27,16 @@ public:
     void comenzarSimulacion();
 
 private:
-    int pizzasAFabricar;
-
     Semaforo semaforoProduccionMasa;
     Semaforo semaforoConsumoMasa;
+
+    int pizzasAFabricar;
+
 
     void generarHerramientaDeCorte(Semaforo semaforoProduccionIngredientes, Semaforo semaforoConsumoIngredientes);
     void generarRayadorDeQueso(Semaforo semaforoProduccionIngredientes, Semaforo semaforoConsumoIngredientes,
                                Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno);
-
-
+    void generarHorneador(Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno);
 };
 
 

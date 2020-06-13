@@ -43,7 +43,7 @@ void Logging::Loggear(NivelDeLogging _nivelDeLogging, string mensaje, string pat
         linea << time << " | ";
         linea << mensaje << "\n";
         string lineaString = linea.str();
-        const char* lineaArchivo = lineaString.c_str();
+        //const char* lineaArchivo = lineaString.c_str();
         cerr << lineaString;
     }
 }

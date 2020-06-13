@@ -18,6 +18,7 @@ pizzasAFabricar(pizzasAFabricar){
     this->generarHerramientaDeCorte(semaforoProduccionIngredientes, semaforoConsumoIngredientes);
     this->generarRayadorDeQueso(semaforoProduccionIngredientes, semaforoConsumoIngredientes,
                                 semaforoProduccionHorno, semaforoConsumoHorno);
+    this->generarHorneador(semaforoProduccionHorno, semaforoConsumoHorno);
 }
 
 Fabricante::~Fabricante() {
@@ -41,12 +42,19 @@ void Fabricante::generarRayadorDeQueso(Semaforo semaforoProduccionIngredientes, 
     }
 }
 
+void Fabricante::generarHorneador(Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno) {
+    pid_t id = fork();
+    if(id == 0){
+        Horneador horneador(semaforoProduccionHorno, semaforoConsumoHorno, this->pizzasAFabricar);
+    }
+}
+
 void Fabricante::comenzarSimulacion() {
     MemoriaCompartidaBuffer<Masa> bufferMasas('a', BUFFIZE_MASA);
     for(int i = 0; i < this->pizzasAFabricar; i++){
         Masa masa = i;
         LOG_DEBUG("Moldeando masa..");
-        sleep(1);
+        usleep(NumeroAleatorio::Obtener());
         int posicionAEscribir = i % BUFFIZE_MASA;
         this->semaforoConsumoMasa.p();
         LOG_DEBUG("Se deposita masa " + to_string(masa) + " en la posicion " + to_string(posicionAEscribir) + " del buffer");
@@ -70,3 +78,5 @@ void Fabricante::comenzarSimulacion() {
 
     exit(0);
 }
+
+

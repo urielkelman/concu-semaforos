@@ -7,19 +7,19 @@
 
 #include "Fabricante.h"
 
+typedef int MasaHorneada ;
+
 class Horneador {
 public:
     Horneador(Semaforo semaforoProduccionHorno, Semaforo semaforoConsumoHorno, int pizzasAHornear);
     ~Horneador();
 private:
-    int pizzasAHornear;
-
     Semaforo semaforoProduccionHorno;
     Semaforo semaforoConsumoHorno;
 
+    int pizzasAHornear;
+
     MemoriaCompartidaBuffer<int> bufferHorno;
-
-
 
     void retirarPizzasHorneadas();
 };

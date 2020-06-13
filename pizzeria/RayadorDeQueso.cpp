@@ -29,6 +29,12 @@ void RayadorDeQueso::comenzarAQuesear() {
         this->agregarQuesoYHornear(masaConIngredientes);
     }
 
+    this->semaforoProduccionHorno.w();
+    LOG_DEBUG("Eliminando semaforo de produccion del horno.");
+    this->semaforoProduccionHorno.eliminar();
+    LOG_DEBUG("Eliminando semaforo de consumo del horno.");
+    this->semaforoConsumoHorno.eliminar();
+
     this->bufferMasasConIngredientes.liberar();
     this->bufferHorno.liberar();
 
@@ -37,8 +43,7 @@ void RayadorDeQueso::comenzarAQuesear() {
 
 void RayadorDeQueso::agregarQuesoYHornear(MasaConIngredientes masaConIngredientes){
     LOG_DEBUG("Agregando queso a la masa con ingredientes recibida");
-    sleep(1);
-
+    usleep(NumeroAleatorio::Obtener());
     MasaConQueso masaConQueso = masaConIngredientes;
     int posicionAEscribir = this->cantidadQueseada % BUFFSIZE_HORNO;
     this->cantidadQueseada++;
