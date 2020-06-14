@@ -44,7 +44,7 @@ void HerramientaDeCorte::comenzarACondimentar() {
 }
 
 void HerramientaDeCorte::agregarIngredientesYPasarARayador(Masa masa) {
-    LOG_DEBUG("Agregando ingredientes a la masa recibida.");
+    LOG_DEBUG("Cortando y agregando ingredientes a la masa recibida.");
     usleep(NumeroAleatorio::Obtener());
     MasaConIngredientes masaConIngredientes = masa;
     int posicionAEscribir = this->cantidadCondimentada % BUFFSIZE_INGREDIENTES;

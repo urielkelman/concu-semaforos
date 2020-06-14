@@ -53,7 +53,7 @@ void Fabricante::comenzarSimulacion() {
     MemoriaCompartidaBuffer<Masa> bufferMasas('a', BUFFIZE_MASA);
     for(int i = 0; i < this->pizzasAFabricar; i++){
         Masa masa = i;
-        LOG_DEBUG("Moldeando masa..");
+        LOG_DEBUG("Moldeando masa numero: " + to_string(i));
         usleep(NumeroAleatorio::Obtener());
         int posicionAEscribir = i % BUFFIZE_MASA;
         this->semaforoConsumoMasa.p();
